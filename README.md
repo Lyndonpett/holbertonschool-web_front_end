@@ -1,1 +1,1 @@
-# holbertonschool-web_front_end
+# This repo is for front end projects.
