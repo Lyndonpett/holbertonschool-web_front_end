@@ -71,21 +71,11 @@ html {
 }
 
 body {
-    color: var(--text-color);
+    color: #161616;
     font-family: var(--font-family-base);
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-regular);
-    min-height: var(--line-height-base);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-family-title);
-    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-small);
 }
 
 a:link {
@@ -105,6 +95,41 @@ a:active {
     background-color: var(--color-light-grey);
 }
 
+.navbar-menu {
+    float: right;
+}
+
+.nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav .nav-item {
+    font-family: var(--nav-item-font-family);
+    font-weight: var(--nav-item-font-weight);
+    font-size: var(--nav-item-font-size);
+    letter-spacing: var(--nav-item-letter-spacing);
+    display: var(--nav-item-display);
+    margin: var(--nav-item-margin);
+}
+
+.nav .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.nav .nav-link:hover {
+    color: var(--nav-item-link-hover);
+}
+
+.container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .visually-hidden {
     display: none;
 }
@@ -114,7 +139,7 @@ a:active {
 }
 
 .header-logo {
-    position: var(--header-logo-link-position);
+    position: var(--header-logo-position);
 }
 
 .header-logo a {
@@ -122,42 +147,6 @@ a:active {
     position: var(--header-logo-link-position);
     top: var(--header-logo-link-top);
     left: var(--header-logo-link-left);
-}
-
-.card-category {
-    color: var(--color-primary);
-}
-
-.card-testimonial {
-    text-align: center;
-}
-
-.card-testimonial .card-avatar {
-    border-radius: 50%;
-    width: 10rem;
-    height: 10rem;
-}
-
-.card-testimonial .card-quote cite {
-    display: block;
-    padding-top: 1rem;
-    color: var(--color-primary);
-}
-
-.card-services .card-title {
-    margin: 0;
-}
-
-.card-services a {
-    display: block;
-    padding: 2rem;
-    background-color: var(--color-light-grey);
-}
-
-.card-services a:hover {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    text-decoration: none;
 }
 
 .section {
@@ -221,49 +210,30 @@ a:active {
     background: var(--button-hover-background);
 }
 
-.container {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+.card-category {
+    color: var(--color-primary);
 }
 
-.footer {
-    padding: var(--footer-padding);
-}
-
-.navbar-menu {
-    float: right;
-}
-
-.nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.card-testimonial {
     text-align: center;
 }
 
-.nav .nav-item {
-    font-family: var(--nav-item-font-family);
-    font-weight: var(--nav-item-font-weight);
-    font-size: var(--nav-item-font-size);
-    letter-spacing: var(--nav-item-letter-spacing);
-    display: var(--nav-item-display);
-    margin: var(--nav-item-margin);
+.card-testimonial .card-avatar {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
 }
 
-.nav .nav-link {
+.card-testimonial .card-quote cite {
     display: block;
-    padding: 0.5rem 1rem;
-}
-
-.nav .nav-link:hover {
-    color: var(--nav-item-link-hover);
+    padding-top: 1rem;
+    color: var(--color-primary);
 }
 
 ul.row {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .row::after {
@@ -272,7 +242,7 @@ ul.row {
     clear: both;
 }
 
-[class*='col-'] {
+[class^='col-'] {
     float: left;
     padding: 0.5rem;
 }
@@ -283,6 +253,44 @@ ul.row {
 
 .col-1-2 {
     width: 50%;
+}
+
+.card-services .card-title {
+    margin: 0;
+}
+
+.card-services a {
+    display: block;
+    padding: 2rem;
+    background-color: var(--color-light-grey);
+}
+
+.card-services a:hover {
+    color: var(--color-white);
+    background: var(--color-primary);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+}
+
+.social-link {
+    display: block;
+}
+
+.social-link>svg {
+    fill: var(--text-color);
+}
+
+.footer {
+    padding: var(--footer-padding);
 }
 
 .footer-copyright {
@@ -297,14 +305,6 @@ ul.row {
 
 .footer-address {
     color: var(--text-color);
-}
-
-.social-link {
-    display: block;
-}
-
-.social-link>svg {
-    fill: var(--text-color);
 }
 
 
