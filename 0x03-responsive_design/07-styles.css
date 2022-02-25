@@ -347,13 +347,13 @@ a:active {
 
 @media (max-width: 480px) {
     html {
-      font-size: 57%;
+        font-size: 57%;
     }
-  }
+}
 
-  @media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 767px) {
     html {
-      font-size: 60%;
+        font-size: 60%;
     }
 }
 
@@ -452,7 +452,7 @@ ul.row {
     letter-spacing: var(--nav-item-letter-spacing);
 }
 
-.nav .nav-item + .nav-item {
+.nav .nav-item+.nav-item {
     margin: var(--nav-item-margin);
 }
 
@@ -521,6 +521,7 @@ ul.row {
     padding: 2.5rem;
     position: relative;
     user-select: none;
+    display: none;
 }
 
 .header .menu-icon .navicon {
@@ -558,29 +559,29 @@ ul.row {
     display: none;
 }
 
-.header .menu-btn:checked ~ .navbar-menu {
+.header .menu-btn:checked~.navbar-menu {
     display: block;
 }
 
-.header .menu-btn:checked ~ .navbar-menu .nav {
+.header .menu-btn:checked~.navbar-menu .nav {
     max-height: 100%;
     overflow: inherit;
 }
 
-.header .menu-btn:checked + .menu-icon .navicon {
+.header .menu-btn:checked+.menu-icon .navicon {
     background: transparent;
 }
 
-.header .menu-btn:checked + .menu-icon .navicon::before {
+.header .menu-btn:checked+.menu-icon .navicon::before {
     transform: rotate(-45deg);
 }
 
-.header .menu-btn:checked + .menu-icon .navicon::after {
+.header .menu-btn:checked+.menu-icon .navicon::after {
     transform: rotate(45deg);
 }
 
-.header .menu-btn:checked + .menu-icon .navicon::before,
-.header .menu-btn:checked + .menu-icon .navicon::after {
+.header .menu-btn:checked+.menu-icon .navicon::before,
+.header .menu-btn:checked+.menu-icon .navicon::after {
     top: 0;
 }
 
@@ -1156,7 +1157,7 @@ textarea:focus {
 /* Form error handling
       ============================= */
 
-input:not(:placeholder-shown) ~ .form-field-icon::after {
+input:not(:placeholder-shown)~.form-field-icon::after {
     height: 100%;
     right: 0;
     pointer-events: none;
@@ -1165,17 +1166,17 @@ input:not(:placeholder-shown) ~ .form-field-icon::after {
     width: 1.3em;
 }
 
-input:required:invalid:not(:focus):not(:placeholder-shown) ~ .form-field-icon::after {
+input:required:invalid:not(:focus):not(:placeholder-shown)~.form-field-icon::after {
     content: '✘';
     color: var(--error-color);
 }
 
-input:required:valid ~ .form-field-icon::after {
+input:required:valid~.form-field-icon::after {
     content: '✔';
     color: var(--valid-color);
 }
 
-input:required:valid ~ .form-help {
+input:required:valid~.form-help {
     max-height: 0;
 }
 

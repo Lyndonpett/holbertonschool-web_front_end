@@ -748,6 +748,11 @@ ul.row {
     min-height: 35vh;
 }
 
+.article-page .section-hero {
+    margin-top: -8.5rem;
+    padding-top: 5rem;
+}
+
 @media (max-width: 767px) {
     .section-hero {
         margin: -0.1rem 0;
