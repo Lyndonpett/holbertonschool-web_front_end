@@ -440,7 +440,7 @@ ul.row {
     letter-spacing: var(--nav-item-letter-spacing);
 }
 
-.nav .nav-item+.nav-item {
+.nav .nav-item + .nav-item {
     margin: var(--nav-item-margin);
 }
 
@@ -1036,7 +1036,7 @@ textarea:focus {
 /* Form error handling
       ============================= */
 
-input:not(:placeholder-shown)~.form-field-icon::after {
+input:not(:placeholder-shown) ~ .form-field-icon::after {
     height: 100%;
     right: 0;
     pointer-events: none;
@@ -1045,17 +1045,17 @@ input:not(:placeholder-shown)~.form-field-icon::after {
     width: 1.3em;
 }
 
-input:required:invalid:not(:focus):not(:placeholder-shown)~.form-field-icon::after {
+input:required:invalid:not(:focus):not(:placeholder-shown) ~ .form-field-icon::after {
     content: '✘';
     color: var(--error-color);
 }
 
-input:required:valid~.form-field-icon::after {
+input:required:valid ~ .form-field-icon::after {
     content: '✔';
     color: var(--valid-color);
 }
 
-input:required:valid~.form-help {
+input:required:valid ~ .form-help {
     max-height: 0;
 }
 
