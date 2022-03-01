@@ -1,0 +1,10 @@
+/* assign textColor through variable */
+$textColor: #3d3d3d;
+
+body {
+    color: $textColor;
+}
+
+p {
+    color: $textColor;
+}
