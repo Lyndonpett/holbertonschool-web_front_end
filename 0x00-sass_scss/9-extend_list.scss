@@ -1,0 +1,14 @@
+/* extending info to other lists */
+.info {
+	font-size: 12px;
+}
+
+.success {
+	color: #00ff00;
+	@extend .info;
+}
+
+.warning {
+	color: #FF0000;
+	@extend .info;
+}
