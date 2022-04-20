@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>Task 6</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+	<script type="application/javascript">
+		$(document).ready(function () {
+			createFamilyTree();
+			createForm();
+		});
+
+		function createFamilyTree() {
+			$('body').append(`<table>
+								<thead>
+									<tr>
+										<th>Firstname</th>
+										<th>Lastname</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>`);
+		};
+
+		function addNewMember(firstName, lastName, position) {
+			if (position == 'before') {
+				$('tbody').prepend(`
+								tr>
+									<td>${firstName}</td>
+									<td>${lastName}</td>
+									<td>(x)</td>
+								</tr>`);
+			} else {
+				$('tbody').append(`
+								<tr>
+									<td>${firstName}</td>
+									<td>${lastName}</td>
+									<td>(x)</td>
+								</tr>`);
+			};
+
+			$('td:nth-child(3)')
+				.css('background-color', 'orange')
+				.click(function (e) {
+					$(this).closest('tr').remove();
+				});
+		};
+
+		function createForm() {
+			$('body').before(`
+							<form>
+								<input type="text">
+								<input type="text">
+								<select>
+									<option value="before">Before</option>
+									<option value="after">After</option>
+								</select>
+								<input type="button" id="submit" value="Submit">
+							</form>`);
+
+			$('#submit').click(function () {
+				addNewMember($('input:first').val(),
+					$('input:nth-of-type(2)').val(),
+					$('select').find(":selected").text().toLowerCase());
+			});
+		};
+	</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
