@@ -93,9 +93,9 @@
 
 		function displayLoading(loading) {
 			if (loading) {
-				$('ul.data').wrap('<div class="loading"></div>');
+				$('ul:first').wrap('<div class="loading"></div>');
 			} else {
-				$('ul.data').unwrap();
+				$('ul:first').unwrap();
 			}
 		}
 	</script>
