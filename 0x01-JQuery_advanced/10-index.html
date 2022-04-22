@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>Task 10</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+	<!-- NON-SLIM FOR AJAX CALL -->
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<script type="application/javascript">
+		$(document).ready(function () {
+			listPosts();
+		});
+
+		// it append to the body a paragraph
+		// The paragraph should contain a span element with the text Post created with id ID, title: TITLE, author: AUTHOR
+		// Each variable is contained in the data object
+		const addPostRow = (data) => {
+			$('body').append(
+				`<p><span id="${data.id}">Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`
+			);
+		};
+		// It should query your local server on the posts endpoint
+		// When the server return a 200 response, it should call the function addPostRow for each element in the response
+		// When the server is unavailable, display an alert with the message Server Error
+		const listPosts = () => {
+			$.ajax({
+				url: 'http://localhost:3000/posts',
+				method: 'GET',
+				success: (data) => {
+					data.forEach((element) => {
+						addPostRow(element);
+					});
+				},
+				error: () => {
+					alert('Server Error');
+				}
+			});
+		};
+	</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
