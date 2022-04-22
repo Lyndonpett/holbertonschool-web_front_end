@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<meta charset="utf-8" />
+	<title>Task 11</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+	<!-- NON-SLIM FOR AJAX CALL -->
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<script type="application/javascript">
+		$(document).ready(function () {
+			listPosts();
+			buildForm();
+		});
+
+		// it append to the body a paragraph
+		// The paragraph should contain a span element with the text Post created with id ID, title: TITLE, author: AUTHOR
+		// Each variable is contained in the data object
+		const addPostRow = (data) => {
+			$('body').append(
+				`<p><span id="${data.id}">Post created with id ${data.id}, title: ${data.title}, author: ${data.author}</span></p>`
+			);
+		};
+		// It should query your local server on the posts endpoint
+		// When the server return a 200 response, it should call the function addPostRow for each element in the response
+		// When the server is unavailable, display an alert with the message Server Error
+		const listPosts = () => {
+			$.ajax({
+				url: 'http://localhost:3000/posts',
+				method: 'GET',
+				success: (data) => {
+					data.forEach((element) => {
+						addPostRow(element);
+					});
+				},
+				error: () => {
+					alert('Server Error');
+				}
+			});
+		};
+
+		/*
+		It appends to the body a form element
+		Inside the form, add a div element, with a label for author with text Author and an input of type text with id author
+		Inside the form, add a div element, with a label for title with text Title and a textarea with id title
+		Inside the form, add an input of type submit
+		When clicking on the submit button, call the function sendForm detailed below
+		*/
+
+		const buildForm = () => {
+			$('body').append(
+				`<form>
+					<div>
+						<label for="author">Author</label>
+						<input type="text" id="author" />
+					</div>
+					<div>
+						<label for="title">Title</label>
+						<textarea id="title"></textarea>
+					</div>
+					<input type="submit" value="Submit" />
+				</form>`
+			);
+
+			$('input[type="submit"]').click(function () {
+				sendForm($('#author').val(), $('#title').val());
+			});
+		};
+
+		/*
+		It should add after the form, the text About to send the query to the API
+		It should create a data object, with the title and author attributes. The values are the ones within the inputs
+		It should send a POST query to your server endpoint posts with the data
+		If the query succeed, call the function addPostRow with the data coming back from the API
+		If the query does not succeed, it should display an alert with the message Error sending the POST query
+		*/
+		const sendForm = (author, title) => {
+			$('form').after('<p>About to send the query to the API</p>');
+
+			const data = {
+				author: author,
+				title: title
+			};
+
+			$.ajax({
+				url: 'http://localhost:3000/posts',
+				method: 'POST',
+				data: data,
+				success: (data) => {
+					addPostRow(data);
+				},
+				error: () => {
+					alert('Error sending the POST query');
+				}
+			});
+		}
+	</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
