@@ -7,8 +7,6 @@ const setCookies = () => {
   document.cookie = `firstname=${firstName}; expires=${date}`;
   const email = document.getElementById('email').value;
   document.cookie = `email=${email}; expires=${date}`;
-  document.getElementById('firstname').value = '';
-  document.getElementById('email').value = '';
 };
 
 const showCookies = () => {

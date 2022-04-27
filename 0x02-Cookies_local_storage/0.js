@@ -3,8 +3,6 @@ const setCookies = () => {
   document.cookie = `firstname=${firstName}`;
   let email = document.getElementById('email').value;
   document.cookie = `email=${email}`;
-  document.getElementById('firstname').value = '';
-  document.getElementById('email').value = '';
 };
 
 const showCookies = () => {
